@@ -8,7 +8,12 @@ const Search = () => {
         src="http://www.clker.com/cliparts/z/w/Q/7/f/C/search-logo-hi.png"
         alt=""
       />
-      <input type="text" size="40" placeholder="search by title..." />
+      <input
+        className={s.bar}
+        type="text"
+        size="40"
+        placeholder="search by title..."
+      />
     </div>
   );
 };

@@ -23,6 +23,8 @@ h6 {
   width: 100%;
   min-height: 500px;
   margin: 35px auto;
+}
+.menu {
   display: flex;
   justify-content: space-between;
 }
