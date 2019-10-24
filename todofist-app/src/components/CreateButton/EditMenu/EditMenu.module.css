@@ -3,6 +3,13 @@
   width: 200px;
   padding: 10px 15px;
   margin: 0 auto;
+  position: absolute;
+  background-color: gray;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 100px;
+  height: 280px;
 }
 .inp {
   border: 2px solid black;

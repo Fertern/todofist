@@ -5,7 +5,9 @@ import Search from "./components/Search/Search";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import CreateButton from "./components/CreateButton/CreateButton";
-import EditMenu from "./components/CreateButton/EditMenu/EditMenu";
+//import EditMenu from "./components/CreateButton/EditMenu/EditMenu";
+//import CardTask from "./components/Cards/CardTask/CardTask";
+import Cards from "./components/Cards/Cards";
 
 function App() {
   return (
@@ -18,8 +20,7 @@ function App() {
           <span className="ByProperty">[all *]</span>
           <CreateButton />
         </div>
-        <EditMenu />
-        <div className="CardTask">[soome card]</div>
+        <Cards />
       </div>
       <Footer />
     </Router>
