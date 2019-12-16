@@ -7,11 +7,13 @@ export default class EditMenu extends Component {
     this.state = {
       priority: "High",
       title: "",
-      description: ""
+      description: "",
+      isDone: false,
+      isVisible: true,
+      id: `f${(+new Date()).toString(16)}`
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.close = this.close.bind(this);
   }
   handleChange(event) {
     const target = event.target;
@@ -25,15 +27,20 @@ export default class EditMenu extends Component {
     event.preventDefault();
     let info = this.state;
     this.props.closeMenu();
-    console.log(this.state);
-  }
-  close() {
-    this.setState(state => ({
-      isWork: false
-    }));
+    //this.props.addCard(this.state);
+    debugger;
+    this.props.addCard(info);
+    this.setState({
+      priority: "High",
+      title: "",
+      description: "",
+      isDone: false,
+      isVisible: true,
+      id: `f${(+new Date()).toString(16)}`
+    });
   }
   render(props) {
-    if (this.props.isWork) {
+    if (this.props.state.editMenuIsOpened) {
       return (
         <form onSubmit={this.handleSubmit} className={s.wrapper}>
           <div className={s.title}>
