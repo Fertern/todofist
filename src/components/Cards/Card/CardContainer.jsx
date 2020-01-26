@@ -1,4 +1,5 @@
 import React, { useState, useLayoutEffect } from "react";
+import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { mobileStyles, desktopStyles } from "./classes";
 import { useDispatch } from "react-redux";
 import {
@@ -13,7 +14,7 @@ import ShortcutCard from "./ShortcutCard";
 
 const CardContainer = ({ isEditing, id, ...props }) => {
   const [isPhoneView, setIsPhoneView] = useState(
-    window.matchMedia(`(max-width: 425px)`).matches
+    useMediaQuery(`(max-width: 425px)`)
   );
   const [anchorEl, setAnchorEl] = useState(null);
   const [shortcutSize, setShortcutSize] = useState(true);

@@ -11,12 +11,12 @@ import {
 const all = "All";
 
 export const addCard = data => {
-  const { title, description, primary } = data;
+  const { title, description, priority } = data;
   return {
     type: ADD_CARD,
     title,
     description,
-    primary
+    priority
   };
 };
 export const deleteCard = id => ({

@@ -41,7 +41,6 @@ const EditingCard = ({
               placeholder={title}
               size="small"
               variant="filled"
-              rows="4"
               fullWidth
               inputRef={register}
               defaultValue={title}

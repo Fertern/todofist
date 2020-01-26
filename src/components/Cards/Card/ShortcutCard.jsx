@@ -3,7 +3,7 @@ import Card from "@material-ui/core/Card";
 import { CardHeader, IconButton, Avatar } from "@material-ui/core";
 
 import DoneIcon from "@material-ui/icons/Done";
-import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
+import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 
 const ShortcutCard = ({ classes, toolbox, title, isDone, setShortcutSize }) => {
   const { toggleDone, handleClose } = toolbox;
@@ -19,7 +19,7 @@ const ShortcutCard = ({ classes, toolbox, title, isDone, setShortcutSize }) => {
         }
         action={
           <IconButton onClick={showFullCard}>
-            <MoreHorizIcon />
+            <ExpandMoreIcon />
           </IconButton>
         }
         title={title}
