@@ -13,20 +13,22 @@ import { mapSubmit, mapSetter, mapToggle } from "../../utils/mapHelpers";
 const isDone = "isDone";
 const initialState = [
   {
-    title: "first",
-    description: "++++++++++++",
-    priority: "Low",
+    title: "Hi there! Open it -->",
+    description:
+      "Tip: you can drag and drop any card, just hold and move it. Attention, only covered cards can be dragged!",
+    priority: "High",
     isDone: false,
     isVisible: true,
     isEditing: false,
     titleEdited: "",
     descriptionEdited: "",
     priorityEdited: "",
-    id: `f456456465`
+    id: `f19141978`
   },
   {
-    title: "second",
-    description: "222222222222",
+    title: "And that too -->",
+    description:
+      "Tip: click on dots right side to open special menu. You can delete, edit, done and cover any card by it.",
     priority: "Normal",
     isDone: false,
     isVisible: true,
@@ -34,11 +36,12 @@ const initialState = [
     titleEdited: "",
     descriptionEdited: "",
     priorityEdited: "",
-    id: `f456456456`
+    id: `f200020020`
   },
   {
-    title: "third",
-    description: "333333333333",
+    title: "Last -->",
+    description:
+      "Tip: click on gray circle to done/undone current card and close all cards. If you want create some new cards, click on '+' button in bottom menu ",
     priority: "Low",
     isDone: false,
     isVisible: true,
@@ -46,19 +49,7 @@ const initialState = [
     titleEdited: "",
     descriptionEdited: "",
     priorityEdited: "",
-    id: `f456457776465`
-  },
-  {
-    title: "four",
-    description: "=4444444",
-    priority: "normal",
-    isDone: false,
-    isVisible: true,
-    isEditing: false,
-    titleEdited: "",
-    descriptionEdited: "",
-    priorityEdited: "",
-    id: `f45645698989456`
+    id: `f222222222`
   }
 ];
 

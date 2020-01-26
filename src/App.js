@@ -8,8 +8,11 @@ const App = () => {
   return (
     <>
       <Header />
-      <NavMenu />
-      <Cards />
+      <div className="content">
+        <NavMenu />
+        <Cards />
+      </div>
+      <hr className="spy" />
     </>
   );
 };

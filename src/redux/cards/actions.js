@@ -55,11 +55,18 @@ export const sortArray = sortedArray => ({
   sortedArray
 });
 
-export const startSearchCard = data => (dispatch, getState) => {
-  const { title, priority, isDone } = data;
-  getState.forEach(card => {
+export const startSearchCard = title => (dispatch, getState) => {
+  getState().forEach(card => {
+    if (card.title.toLowerCase().includes(title)) {
+      dispatch(showCard(card.id));
+    } else dispatch(hideCard(card.id));
+  });
+};
+
+export const startFilter = data => (dispatch, getState) => {
+  const { priority, isDone } = data;
+  getState().forEach(card => {
     if (
-      card.title.toLowerCase().includes(title) &&
       (priority === all || card.priority === priority) &&
       (isDone === all || card.isDone === isDone)
     ) {

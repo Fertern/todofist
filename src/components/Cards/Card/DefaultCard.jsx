@@ -62,7 +62,7 @@ const DefaultCard = ({
       </CardContent>
       <CardActions>
         <Typography>Priority:</Typography>
-        <Paper>{priority}</Paper>
+        <Paper className={classes.priority}>{priority}</Paper>
       </CardActions>
     </Card>
   );

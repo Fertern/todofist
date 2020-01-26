@@ -9,7 +9,8 @@ export const useStylesHeader = makeStyles(theme => ({
   },
   title: {
     flexGrow: 1,
-    display: "none",
+    display: "block",
+    //  display: "none", important thing in next update
     [theme.breakpoints.up("sm")]: {
       display: "block"
     }

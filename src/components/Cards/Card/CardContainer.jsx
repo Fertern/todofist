@@ -54,9 +54,9 @@ const CardContainer = ({ isEditing, id, ...props }) => {
   }, []);
   let classes;
   if (isPhoneView) {
-    classes = mobileStyles;
+    classes = mobileStyles();
   } else {
-    classes = desktopStyles;
+    classes = desktopStyles();
   }
 
   if (isEditing) {

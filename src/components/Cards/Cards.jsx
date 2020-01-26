@@ -26,11 +26,11 @@ const Cards = () => {
   ));
 
   const SortableContainer = sortableContainer(({ children }) => {
-    return <div>{children}</div>;
+    return <span>{children}</span>;
   });
 
   return (
-    <SortableContainer pressDelay={200} onSortEnd={onSortEnd}>
+    <SortableContainer pressDelay={100} onSortEnd={onSortEnd}>
       {cardsArray.map((card, index) => (
         <SortableItem key={`item-${index}`} index={index} card={card} />
       ))}

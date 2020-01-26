@@ -20,7 +20,7 @@ const EditingCard = ({
   priority,
   id
 }) => {
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, errors } = useForm();
   const [newPriority, setNewPriority] = useState(priority);
   const { submitEditedCard } = toolbox;
   const handleChange = e => {
@@ -37,18 +37,20 @@ const EditingCard = ({
         <CardHeader
           title={
             <TextField
+              error={!!errors.title}
               name="title"
               placeholder={title}
               size="small"
               variant="filled"
               fullWidth
-              inputRef={register}
+              inputRef={register({ required: true, maxLength: 40 })}
               defaultValue={title}
             />
           }
         />
         <CardContent>
           <TextField
+            error={!!errors.description}
             multiline
             rows="4"
             size="small"
@@ -56,32 +58,32 @@ const EditingCard = ({
             fullWidth
             name="description"
             placeholder={description}
-            inputRef={register}
+            inputRef={register({ required: true, maxLength: 300 })}
             defaultValue={description}
           />
           <Typography>Choose priority:</Typography>
         </CardContent>
         <CardActions>
-          <Typography>High:</Typography>
+          <Typography>H:</Typography>
           <Radio
             checked={newPriority === "High"}
             onChange={handleChange}
             value="High"
           />
-          <Typography>Normal:</Typography>
+          <Typography>N:</Typography>
           <Radio
             checked={newPriority === "Normal"}
             onChange={handleChange}
             value="Normal"
           />
-          <Typography>Low:</Typography>
+          <Typography>L:</Typography>
           <Radio
             checked={newPriority === "Low"}
             onChange={handleChange}
             value="Low"
           />
         </CardActions>
-        <Button type="submit" fullWidth>
+        <Button type="submit" variant="contained" fullWidth>
           Submit changes
         </Button>
       </Card>

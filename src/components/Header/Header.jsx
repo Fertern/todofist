@@ -1,15 +1,16 @@
-import React, { useState, useLayoutEffect } from "react";
+import React from //, { useState, useLayoutEffect }
+"react";
 //import MobileHeader from "./MobileHeader";
 import {
   AppBar,
   Toolbar,
-  IconButton,
-  Typography,
-  InputBase
+  //IconButton,
+  Typography
+  //InputBase
 } from "@material-ui/core";
-import MenuIcon from "@material-ui/icons/Menu";
+//import MenuIcon from "@material-ui/icons/Menu";
 import { useStylesHeader } from "./classes";
-import SearchIcon from "@material-ui/icons/Search";
+//import SearchIcon from "@material-ui/icons/Search";
 
 const Header = () => {
   // const [isPhoneView, setIsPhoneView] = useState(
@@ -31,12 +32,13 @@ const Header = () => {
 
   return (
     <div className={classes.root}>
-      <AppBar position="static">
+      <AppBar position="static" className={classes.appBar}>
         <Toolbar>
           <Typography className={classes.title} variant="h6" noWrap>
             ToDoGist v2.0
           </Typography>
-          <div className={classes.search}>
+          {/* Search block will be available in next update*/}
+          {/* <div className={classes.search}>
             <div className={classes.searchIcon}>
               <SearchIcon />
             </div>
@@ -48,7 +50,7 @@ const Header = () => {
               }}
               inputProps={{ "aria-label": "search" }}
             />
-          </div>
+          </div> */}
         </Toolbar>
       </AppBar>
     </div>

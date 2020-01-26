@@ -1,8 +1,10 @@
 html {
   font-size: 25px;
+  height: 100%;
 }
 body {
   margin: 0;
+  height: 100%;
 }
 *,
 *:after,
@@ -17,14 +19,30 @@ h5,
 h6 {
   margin: 0;
 }
-/* Blocks */
-.container {
-  max-width: 1200px;
-  width: 100%;
-  min-height: 500px;
-  margin: 35px auto;
+#root {
+  height: 100%;
 }
-.menu {
+.spy {
+  border: none;
+  position: absolute;
+  width: 100%;
+  height: 90px;
+  top: auto;
+}
+/* .content {
   display: flex;
-  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+} */
+/* .content > span {
+  flex: 1;
+}
+.content > div {
+  width: 30%;
+} */
+
+@media (max-width: 600px) {
+  .content {
+    display: block;
+  }
 }

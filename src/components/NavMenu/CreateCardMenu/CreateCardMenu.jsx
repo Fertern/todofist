@@ -1,13 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
 import Button from "@material-ui/core/Button";
 import Dialog from "@material-ui/core/Dialog";
 
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import IconButton from "@material-ui/core/IconButton";
-import Typography from "@material-ui/core/Typography";
 import CloseIcon from "@material-ui/icons/Close";
-import { Radio, TextField, MenuItem, Select } from "@material-ui/core";
+import { TextField, MenuItem, Select } from "@material-ui/core";
 import { useForm, Controller } from "react-hook-form";
 import { useDispatch } from "react-redux";
 import { addCard } from "../../../redux/cards/actions";
@@ -21,7 +20,7 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 });
 
 const CreateCardMenu = ({ handleClose, open }) => {
-  const { register, handleSubmit, control } = useForm();
+  const { register, handleSubmit, control, errors } = useForm();
 
   const dispatch = useDispatch();
   const classes = useStyles();
@@ -51,15 +50,18 @@ const CreateCardMenu = ({ handleClose, open }) => {
         </AppBar>
         <div className={styles.formWrapper}>
           <TextField
+            error={!!errors.title}
+            inputRef={register({ required: true, maxLength: 40 })}
             name="title"
             placeholder={"Write new task"}
             size="small"
             variant="filled"
             fullWidth
-            inputRef={register}
           />
 
           <TextField
+            error={!!errors.description}
+            inputRef={register({ required: true, maxLength: 300 })}
             multiline
             rows="4"
             size="small"
@@ -67,7 +69,6 @@ const CreateCardMenu = ({ handleClose, open }) => {
             fullWidth
             name="description"
             placeholder={"Additional info about new task"}
-            inputRef={register}
           />
 
           <Controller
