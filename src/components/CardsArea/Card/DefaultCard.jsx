@@ -20,7 +20,8 @@ const DefaultCard = ({
   title,
   isDone,
   description,
-  priority
+  priority,
+  setShortcutSize
 }) => {
   const {
     toggleDone,
@@ -29,6 +30,9 @@ const DefaultCard = ({
     editCard,
     deleteCard
   } = toolbox;
+  const coverCard = () => {
+    setShortcutSize(true);
+  };
   return (
     <Card className={classes.card}>
       <CardHeader
@@ -48,6 +52,7 @@ const DefaultCard = ({
         open={!!anchorEl}
         onClose={handleClose}
       >
+        <MenuItem onClick={coverCard}>Cover</MenuItem>
         <MenuItem onClick={toggleDone}>Done</MenuItem>
         <MenuItem onClick={editCard}>Edit</MenuItem>
         <MenuItem onClick={deleteCard}>Delete</MenuItem>

@@ -1,15 +1,14 @@
-import React from "react";
-import { useForm, Controller } from "react-hook-form";
+import React, { useState } from "react";
+import { useForm } from "react-hook-form";
 import {
   Card,
   CardHeader,
-  MenuItem,
   CardContent,
   Typography,
   CardActions,
   Button,
   TextField,
-  Select
+  Radio
 } from "@material-ui/core";
 
 const EditingCard = ({
@@ -21,10 +20,15 @@ const EditingCard = ({
   priority,
   id
 }) => {
-  const { register, handleSubmit, control } = useForm();
+  const { register, handleSubmit } = useForm();
+  const [newPriority, setNewPriority] = useState(priority);
   const { submitEditedCard } = toolbox;
-  const onSubmit = data => {
-    console.log(data);
+  const handleChange = e => {
+    setNewPriority(e.target.value);
+  };
+  const onSubmit = formData => {
+    const data = { ...formData };
+    data.priority = newPriority;
     submitEditedCard(data, id);
   };
   return (
@@ -56,20 +60,27 @@ const EditingCard = ({
             inputRef={register}
             defaultValue={description}
           />
+          <Typography>Choose priority:</Typography>
         </CardContent>
         <CardActions>
-          <Typography>Priority:</Typography>
-
-          <Controller
-            as={<Select fullWidth />}
-            name="priority"
-            control={control}
-            defaultValue={priority}
-          >
-            <MenuItem value="High">High</MenuItem>
-            <MenuItem value="Normal">Normal</MenuItem>
-            <MenuItem value="Low">Low</MenuItem>
-          </Controller>
+          <Typography>High:</Typography>
+          <Radio
+            checked={newPriority === "High"}
+            onChange={handleChange}
+            value="High"
+          />
+          <Typography>Normal:</Typography>
+          <Radio
+            checked={newPriority === "Normal"}
+            onChange={handleChange}
+            value="Normal"
+          />
+          <Typography>Low:</Typography>
+          <Radio
+            checked={newPriority === "Low"}
+            onChange={handleChange}
+            value="Low"
+          />
         </CardActions>
         <Button type="submit" fullWidth>
           Submit changes

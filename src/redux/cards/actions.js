@@ -5,7 +5,8 @@ import {
   SUBMIT_EDIT_CARD,
   TOGGLE_DONE_STATUS_CARD,
   SHOW_CARD,
-  HIDE_CARD
+  HIDE_CARD,
+  SORT_ARRAY
 } from "./selectors";
 const all = "All";
 
@@ -47,6 +48,11 @@ export const hideCard = id => ({
 export const showCard = id => ({
   type: SHOW_CARD,
   id
+});
+
+export const sortArray = sortedArray => ({
+  type: SORT_ARRAY,
+  sortedArray
 });
 
 export const startSearchCard = data => (dispatch, getState) => {

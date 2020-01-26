@@ -5,7 +5,8 @@ import {
   START_EDIT_CARD,
   SUBMIT_EDIT_CARD,
   HIDE_CARD,
-  SHOW_CARD
+  SHOW_CARD,
+  SORT_ARRAY
 } from "./selectors";
 import { mapSubmit, mapSetter, mapToggle } from "../../utils/mapHelpers";
 
@@ -15,7 +16,7 @@ const initialState = [
     title: "first",
     description: "++++++++++++",
     priority: "Low",
-    isDone: true,
+    isDone: false,
     isVisible: true,
     isEditing: false,
     titleEdited: "",
@@ -27,7 +28,7 @@ const initialState = [
     title: "second",
     description: "222222222222",
     priority: "Normal",
-    isDone: true,
+    isDone: false,
     isVisible: true,
     isEditing: false,
     titleEdited: "",
@@ -39,7 +40,7 @@ const initialState = [
     title: "third",
     description: "333333333333",
     priority: "Low",
-    isDone: true,
+    isDone: false,
     isVisible: true,
     isEditing: false,
     titleEdited: "",
@@ -51,7 +52,7 @@ const initialState = [
     title: "four",
     description: "=4444444",
     priority: "normal",
-    isDone: true,
+    isDone: false,
     isVisible: true,
     isEditing: false,
     titleEdited: "",
@@ -98,6 +99,9 @@ const cardsReducer = (state = initialState, action) => {
 
     case SHOW_CARD:
       return mapSetter(state, action.id, { isVisible: true });
+
+    case SORT_ARRAY:
+      return action.sortedArray;
 
     default:
       return state;

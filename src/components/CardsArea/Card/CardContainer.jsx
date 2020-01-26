@@ -9,12 +9,14 @@ import {
 } from "../../../redux/cards/actions";
 import DefaultCard from "./DefaultCard";
 import EditingCard from "./EditingCard";
+import ShortcutCard from "./ShortcutCard";
 
 const CardContainer = ({ isEditing, id, ...props }) => {
   const [isPhoneView, setIsPhoneView] = useState(
     window.matchMedia(`(max-width: 425px)`).matches
   );
-  const [anchorEl, setAnchorEl] = React.useState(null);
+  const [anchorEl, setAnchorEl] = useState(null);
+  const [shortcutSize, setShortcutSize] = useState(true);
   const dispatch = useDispatch();
   const toolbox = {
     toggleDone() {
@@ -67,8 +69,21 @@ const CardContainer = ({ isEditing, id, ...props }) => {
       />
     );
   }
+
+  if (shortcutSize) {
+    return (
+      <ShortcutCard
+        classes={classes}
+        setShortcutSize={setShortcutSize}
+        toolbox={toolbox}
+        id={id}
+        {...props}
+      />
+    );
+  }
   return (
     <DefaultCard
+      setShortcutSize={setShortcutSize}
       anchorEl={anchorEl}
       classes={classes}
       toolbox={toolbox}
