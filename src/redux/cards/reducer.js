@@ -14,26 +14,50 @@ const initialState = [
   {
     title: "first",
     description: "++++++++++++",
-    priority: "low",
+    priority: "Low",
     isDone: true,
     isVisible: true,
     isEditing: false,
-    editingTitle: "",
-    editingDescription: "",
-    editingPriority: "",
-    id: `10`
+    titleEdited: "",
+    descriptionEdited: "",
+    priorityEdited: "",
+    id: `f456456465`
   },
   {
     title: "second",
     description: "222222222222",
+    priority: "Normal",
+    isDone: true,
+    isVisible: true,
+    isEditing: false,
+    titleEdited: "",
+    descriptionEdited: "",
+    priorityEdited: "",
+    id: `f456456456`
+  },
+  {
+    title: "third",
+    description: "333333333333",
+    priority: "Low",
+    isDone: true,
+    isVisible: true,
+    isEditing: false,
+    titleEdited: "",
+    descriptionEdited: "",
+    priorityEdited: "",
+    id: `f456457776465`
+  },
+  {
+    title: "four",
+    description: "=4444444",
     priority: "normal",
     isDone: true,
     isVisible: true,
     isEditing: false,
-    editingTitle: "",
-    editingDescription: "",
-    editingPriority: "",
-    id: `11`
+    titleEdited: "",
+    descriptionEdited: "",
+    priorityEdited: "",
+    id: `f45645698989456`
   }
 ];
 
@@ -50,30 +74,30 @@ const cardsReducer = (state = initialState, action) => {
           isDone: false,
           isVisible: true,
           isEditing: false,
-          editingTitle: "",
-          editingDescription: "",
-          editingPriority: "",
+          titleEdited: "",
+          descriptionEdited: "",
+          priorityEdited: "",
           id: `f${(+new Date()).toString(16)}`
         }
       ];
 
     case DELETE_CARD:
-      return [...state.filter(card => card.id === action.id)];
+      return [...state.filter(card => card.id !== action.id)];
 
     case START_EDIT_CARD:
-      return mapSetter(...state, action.id, { isEditing: true });
+      return mapSetter(state, action.id, { isEditing: true });
 
     case SUBMIT_EDIT_CARD:
-      return mapSubmit(...state, action.id);
+      return mapSubmit(state, action.data, action.id);
 
     case TOGGLE_DONE_STATUS_CARD:
-      return mapToggle(...state, action.id, isDone);
+      return mapToggle(state, action.id, isDone);
 
     case HIDE_CARD:
-      return mapSetter(...state, action.id, { isVisible: false });
+      return mapSetter(state, action.id, { isVisible: false });
 
     case SHOW_CARD:
-      return mapSetter(...state, action.id, { isVisible: true });
+      return mapSetter(state, action.id, { isVisible: true });
 
     default:
       return state;

@@ -4,10 +4,10 @@ import {
   START_EDIT_CARD,
   SUBMIT_EDIT_CARD,
   TOGGLE_DONE_STATUS_CARD,
-  TOGGLE_VISIBLE_CARD,
   SHOW_CARD,
   HIDE_CARD
 } from "./selectors";
+const all = "All";
 
 export const addCard = data => {
   const { title, description, primary } = data;
@@ -28,8 +28,9 @@ export const editCard = id => ({
   id
 });
 
-export const submitEditedCard = id => ({
+export const submitEditedCard = (data, id) => ({
   type: SUBMIT_EDIT_CARD,
+  data,
   id
 });
 
@@ -47,3 +48,16 @@ export const showCard = id => ({
   type: SHOW_CARD,
   id
 });
+
+export const startSearchCard = data => (dispatch, getState) => {
+  const { title, priority, isDone } = data;
+  getState.forEach(card => {
+    if (
+      card.title.toLowerCase().includes(title) &&
+      (priority === all || card.priority === priority) &&
+      (isDone === all || card.isDone === isDone)
+    ) {
+      dispatch(showCard(card.id));
+    } else dispatch(hideCard(card.id));
+  });
+};

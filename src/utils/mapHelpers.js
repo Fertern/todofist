@@ -1,17 +1,18 @@
-export const mapSetter = (array, id, changedValue) =>
-  array.map(element =>
+export const mapSetter = (array, id, changedValue) => {
+  return array.map(element =>
     element.id === id ? { ...element, ...changedValue } : element
   );
+};
 
-export const mapSubmit = (array, id) =>
+export const mapSubmit = (array, data, id) =>
   array.map(element =>
     element.id === id
       ? {
           ...element,
           isEditing: false,
-          title: element.editingTitle,
-          description: element.editingDescription,
-          primary: element.editingPrimary
+          title: data.title,
+          description: data.description,
+          priority: data.priority
         }
       : element
   );
