@@ -1,7 +1,9 @@
 # ToDoList on React
 
 With redux-hooks, react-form-hooks, DnD and more...
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).    
+
+
 Github pages: https://fertern.github.io/todolist-react/
 
 ## Features
