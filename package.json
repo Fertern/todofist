@@ -8,7 +8,7 @@
     "@material-ui/icons": "^4.5.1",
     "@material-ui/styles": "^4.9.0",
     "array-move": "^2.2.1",
-    "gh-pages": "^2.2.0",
+    "gh-pages": "^5.0.0",
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
     "react-hook-form": "^4.7.0",
